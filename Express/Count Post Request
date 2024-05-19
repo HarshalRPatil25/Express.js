@@ -1,0 +1,17 @@
+const bodyParser = require('body-parser');
+const express=require('express');
+const app=express();
+
+let count=0;
+app.use(bodyParser.json())
+app.post('/',(req,res)=>{
+    const head=req.body.head;
+    count++;
+    res.status(200).send(head);
+})
+app.get('/',(req,res)=>{
+   
+    res.send(count.toString());
+})
+
+app.listen(3000);
